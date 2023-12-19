@@ -1,0 +1,351 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Dec 5, 2023, 1:02:59 PM
+    Author     : nguyendatdev
+*/
+
+
+table{
+    text-align: center;
+}
+
+.form-edit-food-image,
+.form-add,
+.form-edit{
+    z-index: -1;
+    visibility: hidden;
+    min-width: 640px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-250%, -250%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transition: all 0.75s ease;
+}
+
+.form-edit-food-image.active,
+.form-add.active,
+.form-edit.active{
+    z-index: 20;
+    visibility: visible !important;
+    transform: translate(-50%, -50%);
+}
+
+.overlay{
+    visibility: hidden;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.overlay.active{
+    z-index: 10;
+    visibility: visible;
+}
+
+.btn-close-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-size: 20px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.navbar{
+    z-index: 0 !important;
+}
+
+.grid-box-image{
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 10px;
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.upload-type{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px dashed #ffc107;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.box-img{
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 600px;
+}
+
+.box-img img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.slide-image{
+    width: 100%;
+    position: relative;
+}
+
+.slide-container{
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+}
+
+.slide-image .slide-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.slide-image .slide-wrapper .slide-item img{
+    border-radius: 6px;
+    max-height: 120px;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slide-image .slide-wrapper .slide-item img:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.btn-slide-next,
+.btn-slide-prev{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    position: absolute;
+    transform: translateY(  -50%);
+}
+
+.btn-slide-next{
+    right: -20px;
+    top: 50%;
+}
+
+.btn-slide-prev{
+    left: -20px;
+    top: 50%;
+}
+
+.price-box{
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: #ec1d25;
+    color: #fff !important;
+}
+
+.box-qty{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: fit-content;
+    gap: 10px;
+}
+
+.box-qty div{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 6px;
+    user-select: none;
+}
+
+.box-qty .max,
+.box-qty .min{
+    background-color: rgba(0,0,0,0.1);
+}
+
+.title-food{
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.box-desc h4{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-add-to-cart{
+    height: 52px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 18px;
+    color: #fff;
+    background-color: #111111;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-add-to-cart:hover{
+    background-color: #ec1d25;
+}
+
+.table td, .table th {
+    padding: 0.75rem;
+    vertical-align: middle !important;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+}
+
+
+.shopping-cart-table{
+    border-collapse: collapse;
+    border-bottom: 1px solid #2d3436;
+}
+
+
+.shopping-cart-table thead th{
+    background-color: #b2bec3;
+    text-align: center;
+}
+
+.shopping-cart-amount{
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ec1d25;
+    color: #fff;
+    font-size: 12px;
+}
+
+.account-info{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+}
+
+.info-box{
+    position: absolute;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    min-width: 140px;
+    top: 100%;
+    right: 0;
+}
+
+.info-box a{
+    color: #000 !important;
+    font-size: 14px !important;
+}
+
+.table td, .table th{
+    border-top: none;
+}
+
+
+table thead tr th{
+    border: none;
+    background-color: rgba(0,0,0,0.2) !important;
+}
+
+table {
+    margin-top: 20px;
+    border: 1px solid rgba(0,0,0,0.2) ;
+}
+
+.box-comment{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box-comment .user{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+}
+
+.box-comment .user img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+}
+
+
+.box-comment .user .username {
+    font-weight: 600;
+}
+
+
+.edit-comment{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.edit-comment input{
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+
+.edit-comment input:focus{
+    border: none !important;
+    outline: none !important;
+    -webkit-box-shadow: none;
+}
